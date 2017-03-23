@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.SimpleAndroidNotifications;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,12 +21,11 @@ public class player : MonoBehaviour {
 
     void FixedUpdate()
     {
-        if (!controller.GetComponent<controller_CG>().gameOver)
+        if (controller_CG.playerActive)
         {
             float moveHorizontal = Input.acceleration.x;
             float moveVertical = Input.acceleration.y;
             Vector2 movement = new Vector2(moveHorizontal, moveVertical);
-
             rb2d.AddForce(movement * speed);
         }
     }
@@ -46,7 +46,6 @@ public class player : MonoBehaviour {
             Instantiate(explosion, transform.position, Quaternion.identity);
             GameObject.Find("Camera").GetComponent<camera>().enabled = false;
             Destroy(gameObject);
-            controller.GetComponent<controller_CG>().gameOver = true;
         }
     }
 }

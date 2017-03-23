@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.SimpleAndroidNotifications;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -37,8 +38,6 @@ public class Boundary
 
     void FixedUpdate()
     {
-        if (!controller.GetComponent<controller>().gameOver)
-        {
             Vector2 movement = new Vector2(Input.acceleration.x, Input.acceleration.y * 2);
             GetComponent<Rigidbody2D>().velocity = movement * speed;
 
@@ -47,6 +46,6 @@ public class Boundary
                 Mathf.Clamp(GetComponent<Rigidbody2D>().position.x, boundary.xMin, boundary.xMax),
                 Mathf.Clamp(GetComponent<Rigidbody2D>().position.y, boundary.yMin, boundary.yMax)
             );
-        }
+        
     }
 }

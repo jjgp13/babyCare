@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.SimpleAndroidNotifications;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,6 +20,7 @@ public class Food : MonoBehaviour {
     float swipeTime;
 
     bool up, down;
+
 
 	// Use this for initialization
 	void Start () {
